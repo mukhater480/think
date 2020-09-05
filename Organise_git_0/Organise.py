@@ -73,3 +73,8 @@ iam hamo .......................................................................
 
 hamo ahmo 
 """
+"""
+hamo after the last commit .
+
+now i add this to discover the changes or the features of stage 
+"""
