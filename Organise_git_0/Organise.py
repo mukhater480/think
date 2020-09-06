@@ -29,9 +29,11 @@ DIRECTORIES = {
 FILE_FORMATS = {file_format: directory 
                 for directory, file_formats in DIRECTORIES.items() 
                 for file_format in file_formats} 
-  
+# the first modification is to make the user enter the dir he wants to organise 
+
+dir_to_organise = input('enter a dir absoulute path  to be organised ')  
 def organize_junk(): 
-    for entry in os.scandir(): 
+    for entry in os.scandir(dir_to_organise): 
         if entry.is_dir(): 
             continue
         file_path = Path(entry) 
