@@ -12,7 +12,7 @@ DIRECTORIES = {
     "DOCUMENTS": [".oxps", ".epub", ".pages", ".docx", ".doc", ".fdf", ".ods", 
                   ".odt", ".pwi", ".xsn", ".xps", ".dotx", ".docm", ".dox", 
                   ".rvg", ".rtf", ".rtfd", ".wpd", ".xls", ".xlsx", ".ppt", 
-                  "pptx"], 
+                  ".pptx"], 
     "ARCHIVES": [".a", ".ar", ".cpio", ".iso", ".tar", ".gz", ".rz", ".7z", 
                  ".dmg", ".rar", ".xar", ".zip"], 
     "AUDIO": [".aac", ".aa", ".aac", ".dvf", ".m4a", ".m4b", ".m4p", ".mp3", 
@@ -31,7 +31,7 @@ FILE_FORMATS = {file_format: directory
                 for file_format in file_formats} 
 # the first modification is to make the user enter the dir he wants to organise 
 
-dir_to_organise = input('enter a dir absoulute path  to be organised ')  
+dir_to_organise = Path(input('enter a dir absoulute path  to be organised '))  
 def organize_junk(): 
     for entry in os.scandir(dir_to_organise): 
         if entry.is_dir(): 
@@ -39,13 +39,14 @@ def organize_junk():
         file_path = Path(entry) 
         file_format = file_path.suffix.lower() 
         if file_format in FILE_FORMATS: 
-            directory_path = Path(FILE_FORMATS[file_format]) 
+            directory = Path(FILE_FORMATS[file_format])
+            directory_path = Path(dir_to_organise.joinpath(directory)) 
             directory_path.mkdir(exist_ok=True) 
             # the second modification edit the rename method file path to keep with the first modification.
             file_path2 = os.path.basename(file_path)
+            #file_path.rename(directory_path.joinpath(file_path)) 
             file_path.rename(directory_path.joinpath(file_path2)) 
-  
-        for dir in os.scandir(dir_to_organise): 
+        for dir in os.scandir(dir_to_organise):     # i still have an error here .....not solved yet  
             try: 
                 os.rmdir(dir) 
             except: 
