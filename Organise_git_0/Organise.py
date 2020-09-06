@@ -41,9 +41,11 @@ def organize_junk():
         if file_format in FILE_FORMATS: 
             directory_path = Path(FILE_FORMATS[file_format]) 
             directory_path.mkdir(exist_ok=True) 
-            file_path.rename(directory_path.joinpath(file_path)) 
+            # the second modification edit the rename method file path to keep with the first modification.
+            file_path2 = os.path.basename(file_path)
+            file_path.rename(directory_path.joinpath(file_path2)) 
   
-        for dir in os.scandir(): 
+        for dir in os.scandir(dir_to_organise): 
             try: 
                 os.rmdir(dir) 
             except: 
