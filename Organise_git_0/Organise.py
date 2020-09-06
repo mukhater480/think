@@ -1,13 +1,5 @@
-"""
-        This is my original master from internet .
-        
-          its lake of functionality is as follows :
-           
-           * it works only on the same directory only iam in (it dose not tell the user to enter a directory to organise.
 
-           * it can not search with in the already existed sub directories with in the given directory.
-
-"""
+#now the work begins
 import os 
 from pathlib import Path 
   
@@ -58,26 +50,3 @@ def organize_junk():
 if __name__ == "__main__": 
     organize_junk() 
 
-
-"""
-now iam adding another change to help me understand git much better...............>  "this one"
-
-
-after staging the last change......................................................> "this is two"
-after hitting save and staging "this two "..........................................> "this is three"
-
-this another one after them...........................................................>"this is four"
-this another one in the lesson of my self ............................................>"this is five"
-iam hamo ..............................................................................>"this is six"
-
-
-hamo ahmo 
-"""
-"""
-hamo after the last commit .
-
-now i add this to discover the changes or the features of stage 
-
-i will not stage that 
-
-"""
